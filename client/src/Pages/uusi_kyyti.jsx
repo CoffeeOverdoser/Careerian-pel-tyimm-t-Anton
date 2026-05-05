@@ -5,18 +5,22 @@ export default function App() {
   const [type, setType] = useState("");
   const [route, setRoute] = useState("");
   const [details, setDetails] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const newItem = { route, type, details };
+    const newItem = { route, type, details };
+    const existing = JSON.parse(localStorage.getItem("list") || "[]");
 
-  const existing = JSON.parse(localStorage.getItem("list") || "[]");
+    localStorage.setItem("list", JSON.stringify([...existing, newItem]));
 
-  localStorage.setItem("list", JSON.stringify([...existing, newItem]));
+    setShowPopup(true);
 
-  console.log("saved locally:", newItem);
-};
+    setRoute("");
+    setType("");
+    setDetails("");
+  };
 
   return (
     <div className={style.container}>
@@ -69,6 +73,18 @@ export default function App() {
           </button>
 
         </form>
+
+        {showPopup && (
+          <div className={style.popupOverlay}>
+            <div className={style.popup}>
+              <p>Kyytipyyntö lisätty!</p>
+              <button onClick={() => setShowPopup(false)}>
+                OK
+              </button>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
