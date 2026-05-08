@@ -2,36 +2,41 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../css/mainsivu.module.css";
 
-export default function Login() {
+export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleLogin = () => {
+  const handleRegister = () => {
+    if (!username || !password) {
+      alert("Please fill all fields");
+      return;
+    }
+
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const foundUser = users.find(
-      (user) =>
-        user.username === username &&
-        user.password === password
+    const userExists = users.find(
+      (user) => user.username === username
     );
 
-    if (foundUser) {
-      localStorage.setItem(
-        "loggedInUser",
-        JSON.stringify(foundUser)
-      );
-      alert("Login successful!");
-      console.log("Logged in")
-
-      navigate("/home");
-    } else {
-      alert("Invalid username or password");
+    if (userExists) {
+      alert("User already exists");
+      return;
     }
+
+    users.push({
+      username,
+      password,
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Registration successful!");
+
+    navigate("/login");
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h1>Login</h1>
+        <h1>Register</h1>
 
         <div className={styles.formGroup}>
           <input
@@ -50,13 +55,12 @@ export default function Login() {
           />
         </div>
 
-        <button className={styles.newBtn} onClick={handleLogin}>
-          Login
+        <button className={styles.newBtn} onClick={handleRegister}>
+          Register
         </button>
 
         <p>
-          Don't have an account?{" "}
-          <Link to="/">Register</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

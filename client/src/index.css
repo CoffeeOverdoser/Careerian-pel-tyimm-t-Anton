@@ -15,16 +15,6 @@ body {
   color: var(--text);
 }
 
-/* DARK MODE */
-body.dark-mode {
-  --text: #9ca3af;
-  --text-h: #f3f4f6;
-  --bg: #16171d;
-  --border: #2e303a;
-  --accent: #c084fc;
-}
-
-/* ROOT LAYOUT */
 #root {
   width: 1126px;
   max-width: 100%;
@@ -35,7 +25,6 @@ body.dark-mode {
   border-inline: 1px solid var(--border);
 }
 
-/* HEADINGS */
 h1 {
   font-size: 56px;
   margin: 32px 0;

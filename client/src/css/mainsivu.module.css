@@ -13,53 +13,58 @@ body {
 .card {
   border: 2px solid #D7AF4D;
   padding: 30px;
-  width: 600px;
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+.card h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #D7AF4D;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
 
 .new-btn {
+  width: 100%;
   background: #D7AF4D;
   border: 2px solid #D7AF4D;
   color: #000000;
-  padding: 10px 20px;
+  padding: 12px;
   cursor: pointer;
-  margin-bottom: 20px;
   transition: 0.3s;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .new-btn:hover {
-  background-color: #D7AF4D;
+  background-color: #b8933c;
   color: white;
 }
 
-.list-box {
-  border: 2px solid #D7AF4D;
-  margin-top: 20px; 
-}
-
-.list-header {
-  display: flex;
-  align-items: center;
-  border-bottom: 2px solid #D7AF4D;
-  padding: 10px;
-}
-
-.list-header h2 {
-  flex: 1;
+p {
+  margin-top: 20px;
   text-align: center;
-  margin: 0;
 }
 
-.collapse {
-  margin-right: 10px;
-  cursor: pointer;
+a {
+  color: #D7AF4D;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.list-content {
-  padding: 20px;
-}
-
-.date {
-  margin-top: 40px;
-  color: #000000;
+a:hover {
+  text-decoration: underline;
 }
