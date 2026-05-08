@@ -17,13 +17,13 @@ function App() {
       <Navbar theme={theme} setTheme={setTheme} />
 
       <Routes>
-        <Route path="/" element={<Register />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Mainsivu />} />
         <Route path="/uusikyyti" element={<Uusikyyti />} />
         <Route path="/poista" element={<PoistaKyydit />} />
         <Route path="*" element={<NotFound />} />
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </>
   )

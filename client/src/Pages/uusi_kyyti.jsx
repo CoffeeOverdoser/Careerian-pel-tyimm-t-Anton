@@ -5,12 +5,17 @@ export default function App() {
   const [type, setType] = useState("");
   const [route, setRoute] = useState("");
   const [details, setDetails] = useState("");
+  const [seatCount, setSeatCount] = useState("");
+  const [time, setTime] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = { route, type, details };
+    const newItem = {
+    route, type, details, seatCount, time, user: loggedInUser?.username || "unknown"
+};
     const existing = JSON.parse(localStorage.getItem("list") || "[]");
 
     localStorage.setItem("list", JSON.stringify([...existing, newItem]));
@@ -71,6 +76,18 @@ export default function App() {
           <button type="submit" className={style["submit-btn"]}>
             Lähetä
           </button>
+          <input
+          type="number"
+          placeholder="Paikkoja vapaana"
+          value={seatCount}
+          onChange={(e) => setSeatCount(e.target.value)}
+          />
+
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+        />
 
         </form>
 

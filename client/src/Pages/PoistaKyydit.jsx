@@ -28,8 +28,11 @@ return (
           items.map((item, i) => (
             <div key={i} className={styles["list-content"]}>
               <p>{item.route}</p>
-              <p>{item.type}</p>
-              <p>{item.details}</p>
+              <p>type: {item.type}</p>
+              <p>details: {item.details}</p>
+              <p>Time: {item.time}</p>
+              <p>seats: {item.seatCount}</p>
+              <p>user: {item.user}</p>
 
               <button onClick={() => deleteItem(i)}>
                 Poista

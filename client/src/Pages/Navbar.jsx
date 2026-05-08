@@ -9,6 +9,7 @@ export default function Navbar({ theme, setTheme }) {
       <div className={styles.links}>
         <Link to="/home">Home</Link>
         <Link to="/uusikyyti">Uusi kyyti</Link>
+        <Link to="/poista">Poista</Link>
       </div>
     </nav>
   );

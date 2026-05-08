@@ -1,5 +1,5 @@
-tehty: css tiedostot, main-, poisto- ja uusikyyti sivut, navbaari, routing,
+tehty: css tiedostot, main-, poisto- ja uusikyyti sivut, navbaari, routing, login
 
-WIP: 
+WIP: local db online db:ksi
 
-To Do: login
+To Do: 
